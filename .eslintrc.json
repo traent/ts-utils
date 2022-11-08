@@ -1,0 +1,26 @@
+{
+  "extends": "../../.eslintrc.json",
+  "ignorePatterns": [
+    "!**/*"
+  ],
+  "overrides": [
+    {
+      "files": [
+        "*.ts"
+      ],
+      "parserOptions": {
+        "project": [
+          "projects/t3-ts-utils/tsconfig.eslint.json"
+        ],
+        "createDefaultProgram": false
+      },
+      "rules": {}
+    },
+    {
+      "files": [
+        "*.html"
+      ],
+      "rules": {}
+    }
+  ]
+}
