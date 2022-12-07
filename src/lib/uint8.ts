@@ -53,3 +53,7 @@ export const b64ToB64UrlEncoding = (s: string): string => s
   .replace(/=/g, '')
   .replace(/\+/g, '-')
   .replace(/\//g, '_');
+
+export const b64UrlToB64Encoding = (s: string): string => s
+  .replace(/-/g, '+')
+  .replace(/_/g, '/') + '==='.slice((s.length + 3) % 4);

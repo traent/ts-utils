@@ -10,7 +10,7 @@
 
 > @traent/ts-utils is a TypeScript library that exposes quite generic utilities function that it can be use across different projects.
 
-> Important note: This library is actually under development and could have some further breaking changes.
+> Notice: This library is currently under development and might be subjected to breaking changes.
 
 ## Available Components (change)
 
@@ -38,5 +38,4 @@ In the future, we will improve the tooling to allow everyone to build this libra
 
 ## Contributors
 
-At the moment, contributions are not supported through Pull Request.
-However, we truly appreciate any feedback made through the issue system.
+We are open to any contributions and feedbacks.
