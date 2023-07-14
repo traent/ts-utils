@@ -1,0 +1,15 @@
+{
+  "name": "@traent/ts-utils",
+  "version": "0.0.9",
+  "author": {
+    "name": "Traent S.r.l."
+  },
+  "license": "Apache License 2.0",
+  "peerDependencies": {
+    "base64-arraybuffer": "^1.0.1",
+    "rxjs": "^7.5.7"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  }
+}

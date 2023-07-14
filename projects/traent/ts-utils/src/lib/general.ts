@@ -61,18 +61,6 @@ export const trackByIndex = (index: number): number => index;
 
 export const clamp = (x: number, min: number, max: number): number => Math.min(Math.max(min, x), max);
 
-export const toBase64 = (file: File): Promise<string | ArrayBuffer | null> =>
-  new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = () => resolve(reader.result);
-    reader.onerror = (error) => reject(error);
-  });
-
-/** @deprecated */
-export const contentObjectToString = (obj: { contentType: string; content: string }): string =>
-  `data:${obj.contentType};base64,${obj.content}`;
-
 export const blobToString = (blob: Blob): Promise<string> =>
   new Promise((resolve, reject) => {
     const reader = new FileReader();
@@ -82,6 +70,8 @@ export const blobToString = (blob: Blob): Promise<string> =>
 
     reader.readAsDataURL(blob);
   });
+
+export const toBase64 = blobToString;
 
 export const capitalize = (s: string): string =>
   s.charAt(0).toUpperCase() + s.slice(1);

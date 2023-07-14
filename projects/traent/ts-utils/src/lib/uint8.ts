@@ -1,18 +1,18 @@
 import { decode, encode } from 'base64-arraybuffer';
 
+type InputByteArray = Uint8Array | string;
+
 export const emptyU8 = new Uint8Array();
 
+const u8ToU8 = (b: InputByteArray) => typeof b === 'string' ? base64ToU8(b) : b;
+
 export const base64ToU8 = (s: string) => new Uint8Array(decode(s));
-export const u8ToBase64 = (b: any) => typeof b === 'string' ? b : encode(b);
+export const u8ToBase64 = (b: InputByteArray) => typeof b === 'string' ? b : encode(b);
 export const u8ToBlob = (uint8Array: Uint8Array | null | undefined) => uint8Array && new Blob([uint8Array]);
-export const u8ToBase64Url = (b: any) => b64ToB64UrlEncoding(u8ToBase64(b));
+export const u8ToBase64Url = (b: InputByteArray) => b64ToB64UrlEncoding(u8ToBase64(b));
 
 const textDecoder = new TextDecoder();
-// b: DotNet.InputByteArray
-export const u8ToRaw = (b: any) =>
-  typeof b === 'string'
-    ? textDecoder.decode(base64ToU8(b))
-    : textDecoder.decode(b);
+export const u8ToRaw = (b: InputByteArray) => textDecoder.decode(u8ToU8(b));
 
 export const hexToU8 = (s: string) => {
   if (s.length % 2) {
@@ -34,15 +34,10 @@ const u8NumberToHex = (x: number) => {
   return padded;
 };
 
-// b: DotNet.InputByteArray
-export const u8ToHex = (b: any) => {
-  if (typeof b === 'string') {
-    b = base64ToU8(b);
-  }
-
+export const u8ToHex = (b: InputByteArray) => {
   let r = '';
 
-  for (const x of b) {
+  for (const x of u8ToU8(b)) {
     r += u8NumberToHex(x);
   }
 

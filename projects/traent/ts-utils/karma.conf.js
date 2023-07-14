@@ -25,7 +25,7 @@ module.exports = function (config) {
       suppressAll: true // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, '../../coverage/t3-ts-utils'),
+      dir: require('path').join(__dirname, '../../../coverage/traent/ts-utils'),
       subdir: '.',
       reporters: [
         { type: 'html' },
